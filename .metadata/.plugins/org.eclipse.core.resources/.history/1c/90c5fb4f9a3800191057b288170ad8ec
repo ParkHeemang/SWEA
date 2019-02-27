@@ -1,0 +1,45 @@
+
+public class combination {
+	
+	
+	static int[] an;
+	static int[] tr;
+
+	public static void main(String[] args) {
+
+		
+		int n =5;
+		int r =3;
+		
+		
+		an = new int[n];
+		tr = new int[r];
+		
+		
+		
+		
+		
+		
+	}
+
+	public void comb(int n, int r) {
+
+		if (r == 0) {
+
+			for (int i = 0; i < tr.length; i++) {
+
+				System.out.print(tr[i]+" ");
+				
+			}
+
+		} else if (n < r) {
+
+			return;
+
+		} else {
+
+		}
+
+	}
+
+}

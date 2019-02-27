@@ -1,0 +1,117 @@
+package problem1232;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Solution {
+
+	static int N;
+	static Node[] nodes;
+	static ArrayList<String> result_arr;
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		for (int t = 1; t <= 10; t++) {
+
+			N = sc.nextInt();
+
+			sc.nextLine();
+
+			result_arr = new ArrayList<String>();
+
+			nodes = new Node[N + 1];
+
+			for (int i = 1; i <= N; i++) { // 노드넣는 배열 생성과 노드 생성(부모자식 관계)
+
+				String line = sc.nextLine();
+
+				String[] input = line.split(" ");
+
+				if (input.length == 4) {
+
+					Node node = new Node(Integer.parseInt(input[0]), input[1]);
+					node.left_child_index = Integer.parseInt(input[2]);
+					node.right_child_index = Integer.parseInt(input[3]);
+
+					nodes[Integer.parseInt(input[0])] = node;
+
+				} else {
+
+					Node node = new Node(Integer.parseInt(input[0]), input[1]);
+
+					nodes[Integer.parseInt(input[0])] = node;
+
+				}
+
+			}
+
+			inorder(1);
+			
+			for (int i = 0; i < result_arr.size(); i++) {
+				
+				System.out.print(result_arr.get(i)+" ");
+				
+			}
+			
+
+			float sum = Integer.parseInt(result_arr.get(0));
+
+			for (int i = 1; 2 * i < result_arr.size(); i++) {
+
+				if (result_arr.get(2 * i - 1).equals("+")) {
+
+					sum += Integer.parseInt(result_arr.get(2 * i));
+
+				} else if (result_arr.get(2 * i - 1).equals("-")) {
+					sum -= Integer.parseInt(result_arr.get(2 * i));
+
+				} else if (result_arr.get(2 * i - 1).equals("*")) {
+					sum *= Integer.parseInt(result_arr.get(2 * i));
+
+				} else {
+					sum /= Integer.parseInt(result_arr.get(2 * i));
+
+				}
+
+			}
+
+			System.out.println("#" + t + " " + sum);
+
+		}
+
+	}
+
+	private static void inorder(int i) {
+
+		if (nodes[i].left_child_index != 0) {
+
+			inorder(nodes[i].left_child_index);
+		}
+
+		result_arr.add(""+nodes[i].value);
+
+		if (nodes[i].right_child_index != 0) {
+
+			inorder(nodes[i].right_child_index);
+		}
+
+	}
+
+}
+
+class Node {
+
+	int index;
+	String value;
+	int left_child_index;
+	int right_child_index;
+
+	public Node(int index, String value) {
+
+		this.index = index;
+		this.value = value;
+
+	}
+}

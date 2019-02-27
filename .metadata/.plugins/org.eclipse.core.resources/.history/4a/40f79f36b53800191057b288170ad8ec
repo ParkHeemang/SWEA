@@ -1,0 +1,51 @@
+package problem4613;
+
+import java.util.Scanner;
+
+public class Solution2 {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		int T = sc.nextInt();
+
+		for (int t = 0; t <= T; t++) {
+
+			int N = sc.nextInt();
+			int M = sc.nextInt();
+
+			char[][] array = new char[N][M];
+
+			for (int i = 0; i < array.length; i++) {
+
+				String line = sc.next();
+
+				for (int j = 0; j < array[i].length; j++) {
+
+					array[i][j] = line.charAt(j);
+
+				}
+
+			}
+			
+			for (int i = 0; i < array.length; i++) {
+				
+				
+				
+				for (int j = 0; j < array.length; j++) {
+					
+					System.out.print(array[i][j]);
+					
+				}
+				
+				System.out.println();
+				
+			}
+			
+
+		}
+
+	}
+
+}

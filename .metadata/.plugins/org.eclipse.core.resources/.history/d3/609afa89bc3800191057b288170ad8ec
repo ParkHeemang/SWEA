@@ -1,0 +1,74 @@
+package problem4613;
+
+import java.util.Scanner;
+
+public class Solution2 {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		int T = sc.nextInt();
+
+		for (int t = 0; t <= T; t++) {
+
+			int N = sc.nextInt();
+			int M = sc.nextInt();
+
+			char[][] array = new char[N][M];
+
+			for (int i = 0; i < array.length; i++) {
+
+				String line = sc.next();
+
+				for (int j = 0; j < array[i].length; j++) {
+
+					array[i][j] = line.charAt(j);
+
+				}
+
+			}
+
+			// W+B+R = 4
+			// W>=1, R>=1
+
+			int min = 0;
+
+			// 0부터 시작
+
+			
+
+			for (int W = 1; W <= array.length - 2; W++) {
+				
+				int index = 0;
+
+				for (int i = 0; i < W; i++) {
+
+					System.out.println(index++ + "W");
+				}
+
+				for (int B = 1; B <= array.length - W - 1; B++) {
+
+					for (int i = 0; i < B; i++) {
+
+						System.out.println(index++ + "B");
+					}
+
+					for (int R = 1; R <= array.length - W - B; R++) {
+
+						for (int i = 0; i < R; i++) {
+
+							System.out.println(index++ + "R");
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}

@@ -1,0 +1,15 @@
+package practice0104;
+
+public class Lion extends Animal implements Predator{
+
+	@Override
+	public String getFood() {
+		
+		return "banana";
+	}
+	
+	public void bark() {		
+		System.out.println("À¸¸£··");
+	}
+
+}

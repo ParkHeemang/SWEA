@@ -1,0 +1,38 @@
+package problem1289;
+
+import java.util.Scanner;
+
+public class Solution {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		int T = sc.nextInt();
+
+		sc.nextLine();
+
+		for (int i = 0; i < T; i++) { // 아예같게
+
+			String[] memory = sc.nextLine().split("");
+
+			for (int j = 0; j < memory.length; j++) {
+
+				System.out.println(memory[j]);
+			}
+
+		}
+
+	}
+
+	public static void change(String[] memory, int i, int number) {
+
+		for (int j = i; j < memory.length; j++) {
+
+			memory[j] = "" + number;
+
+		}
+
+	}
+
+}

@@ -1,0 +1,18 @@
+package practice0104;
+
+public class Tiger extends Animal implements Predator, Barkable{
+
+	@Override
+	public String getFood() {
+		// TODO Auto-generated method stub
+		return "banana";
+	}
+	
+	public void bark() {
+		
+		System.out.println("¾îÈï");
+	}
+	
+
+
+}
